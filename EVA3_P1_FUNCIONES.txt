@@ -1,0 +1,69 @@
+Microsoft Windows [Versión 10.0.26200.9711]
+(c) Microsoft Corporation. Todos los derechos reservados.
+
+C:\Users\aleja>MYSQLSH
+MySQL Shell 8.0.46
+
+Copyright (c) 2016, 2026, Oracle and/or its affiliates.
+Oracle is a registered trademark of Oracle Corporation and/or its affiliates.
+Other names may be trademarks of their respective owners.
+
+Type '\help' or '\?' for help; '\quit' to exit.
+ MySQL  JS > \SQL
+Unknown command: '\SQL'
+ MySQL  JS > \sql
+Switching to SQL mode... Commands end with ;
+ MySQL  SQL > connect -- mc root@localhost
+ERROR: Not connected.
+           ->
+           -> ^C
+ MySQL  SQL > \connect --mc root@localhost
+Creating a Classic session to 'root@localhost'
+Fetching global names for auto-completion... Press ^C to stop.
+Your MySQL connection id is 24
+Server version: 8.0.46 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost:3306 ssl  SQL > create database t3;
+Query OK, 1 row affected (0.0210 sec)
+ MySQL  localhost:3306 ssl  SQL > show database;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'database' at line 1
+ MySQL  localhost:3306 ssl  SQL > show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| t1                 |
+| t1_copia           |
+| t2                 |
+| t3                 |
+| tbd_exa1           |
+| ventas             |
+| ventas_bicicletas  |
++--------------------+
+12 rows in set (0.0027 sec)
+ MySQL  localhost:3306 ssl  SQL > use t3;
+Default schema set to `t3`.
+Fetching global names, object names from `t3` for auto-completion... Press ^C to stop.
+ MySQL  localhost:3306 ssl  t3  SQL > drop function hola();
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '()' at line 1
+ MySQL  localhost:3306 ssl  t3  SQL > drop function hola;
+Query OK, 0 rows affected (0.0459 sec)
+ MySQL  localhost:3306 ssl  t3  SQL > select hola("ruben");
++---------------+
+| hola("ruben") |
++---------------+
+| holaruben     |
++---------------+
+1 row in set (0.0359 sec)
+ MySQL  localhost:3306 ssl  t3  SQL > select mostrar_mensaje("ruben");
++--------------------------+
+| mostrar_mensaje("ruben") |
++--------------------------+
+| holaruben                |
++--------------------------+
+1 row in set (0.0015 sec)
+ MySQL  localhost:3306 ssl  t3  SQL >
