@@ -1,0 +1,41 @@
+ MySQL  localhost:3306 ssl  t3  SQL > CREATE TABLE persona (
+                                   ->     rfc VARCHAR(13) PRIMARY KEY,
+                                   ->     nombre VARCHAR(50) NOT NULL,
+                                   ->     ap_pat VARCHAR(50) NOT NULL,
+                                   ->     ap_mat VARCHAR(50),
+                                   ->     fecha_nac DATE NOT NULL
+                                   -> )
+                                   -> ;
+Query OK, 0 rows affected (0.1184 sec)
+ MySQL  localhost:3306 ssl  t3  SQL > show tables;
++--------------+
+| Tables_in_t3 |
++--------------+
+| ciudad       |
+| persona      |
++--------------+
+2 rows in set (0.0029 sec)
+ MySQL  localhost:3306 ssl  t3  SQL > select* from persona;
+Empty set (0.0173 sec)
+ MySQL  localhost:3306 ssl  t3  SQL > drop table persona;
+Query OK, 0 rows affected (0.0693 sec)
+ MySQL  localhost:3306 ssl  t3  SQL > CREATE TABLE persona (
+                                   ->     rfc VARCHAR(13) key auto_increment,
+                                   ->     nombre VARCHAR(50) NOT NULL,
+                                   ->     ap_pat VARCHAR(50) NOT NULL,
+                                   ->     ap_mat VARCHAR(50) NOT NULL DEFAULT 'X',
+                                   ->     fecha_nac DATE NOT NULL
+                                   -> );
+ERROR: 1063 (42000): Incorrect column specifier for column 'rfc'
+ MySQL  localhost:3306 ssl  t3  SQL > CREATE TABLE persona (     rfc VARCHAR(13) primary key,     nombre VARCHAR(50) NOT NULL,     ap_pat VARCHAR(50) NOT NULL,     ap_mat VARCHAR(50) NOT NULL DEFAULT 'X',     fecha_nac DATE NOT NULL );
+Query OK, 0 rows affected (0.0925 sec)
+ MySQL  localhost:3306 ssl  t3  SQL > CALL insertar_persona('Carlos', 'Pérez', 'Gómez', '1995-05-12');
+Query OK, 1 row affected (0.0497 sec)
+ MySQL  localhost:3306 ssl  t3  SQL > select * from persona;
++---------------+--------+--------+--------+------------+
+| rfc           | nombre | ap_pat | ap_mat | fecha_nac  |
++---------------+--------+--------+--------+------------+
+| PÉGC950512XXX | Carlos | Pérez  | Gómez  | 1995-05-12 |
++---------------+--------+--------+--------+------------+
+1 row in set (0.0358 sec)
+ MySQL  localhost:3306 ssl  t3  SQL >
